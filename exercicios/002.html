@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            background-color: rgb(150, 150, 231);
+            font: normal 18pt Arial;
+        }
+        h1 {
+            color: white;
+        }
+        #box {
+            background-color: white;
+            padding: 20px;
+            width: 400px;
+            height: 150px;
+            margin-left: 400px;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>Verificador de Idade</h1></center>
+    <div id="box">
+        Ano de nascimento: <input type="nascimento" name="" id="ano"> <br>
+        Sexo: <input type="checkbox" name="sexo" id="masc" value="masculino"> Masculino
+        <input type="checkbox" name="sexo" id="masc" value="feminino"> Feminino <br>
+        <button onclick="aumentarDiv()" id="resultado">Verificar</button>
+        <div id="msg">
+
+        </div>
+    </div>
+    <script>
+        var mensagem = document.getElementById('msg')
+        mensagem.innerHTML = 'Preencha os dados acima para ver o resultado!'
+        function aumentarDiv() {
+            var box = document.getElementById('box')
+            var res = document.getElementById('ano')
+            var idade = number(res.value)
+            var alturaAtual = box.offsetHeight
+            var botaoElement = document.getElementById('resultado')
+            var elementosSexo = document.querySelectorAll('input[name="sexo"]');
+            var resultado = '';
+            if (res == null){
+                window.alert('Insira um valor de ano!')
+            } else if (res > 2023){
+                window.alert('Ano inválido')
+            } else if (res > 2009) {
+                // criança
+            } else if (res < 2009 || res > 1973){
+                //adulto
+            }
+
+            box.style.height = (alturaAtual + 200) + 'px'
+
+        }
+    </script>
+</body>
+</html>

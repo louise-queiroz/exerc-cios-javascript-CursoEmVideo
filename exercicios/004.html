@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+    <style>
+        h1,h3{
+            color: white;
+        }
+
+        body{
+            background-color: rgb(155, 116, 195);
+        }
+
+        .container{
+        display: flex;
+        justify-content: center;
+        }
+
+        #box{
+            background-color: white;
+            padding: 20px;
+            width: 400px;
+            height: 250px;
+            line-height: 50px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <h1><center>Tabuada</center></h1>
+
+    <div class="container">
+        <div id="box">
+            Número: <input type="number" name="numero" id="numero">
+            <button onclick="multiplicar()" id="resultado">Gerar Tabuada</button>
+            <br>
+            <textarea id="textarea" rows="10" cols="20"></textarea>
+        </div>
+
+    </div>
+
+    <footer><h3><center>Louise Queiroz</center></footer></h3>
+
+    <script>
+        var entrada = document.getElementById('numero')
+        var texto = document.getElementById('textarea')
+        var resultado = ''
+        function multiplicar(){
+            var numero = Number(entrada.value)
+            var mult = 0
+            for (let x = 0; x<=10; x++){
+                mult = numero * x
+                resultado += `${numero} * ${x} = ${mult}\n`
+            }
+            textarea.value = resultado
+        }
+    </script>
+</body>
+</html>

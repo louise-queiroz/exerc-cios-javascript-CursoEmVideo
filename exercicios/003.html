@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super contador</title>
+    <style>
+        h1,h3{
+            color: white;
+        }
+
+        body{
+            background-color: rgb(138, 98, 175);
+        }
+
+        .container {
+        display: flex;
+        justify-content: center;
+        }
+
+        #box{
+            background-color: white;
+            padding: 20px;
+            width: 250px;
+            height: 150px;
+            line-height: 30px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <center><h1> Vamos contar</h1></center>
+    <div class="container">
+    <div id="box">
+        Inicio: <input type="number" name="inicio" id="inicio"> <br>
+        Fim: <input type="number" name="fim" id="fim"> <br>
+        Passo: <input type="number" name="passo" id="passo">
+        <button onclick="contar()" id="resultado">Contar</button>
+
+        <div id="res">
+
+        </div>
+    </div>
+</div>
+
+<footer><center><h3>Louise Queiroz</h3></footer></center>
+
+    <script>
+        let divAumentada = false
+        var resposta = document.getElementById('res')
+        var inicio = document.getElementById('inicio')
+        var fim = document.getElementById('fim')
+        var passo = document.getElementById('passo')
+
+
+        function contar() {
+            
+            if (!divAumentada){
+                var box = document.getElementById('box')
+                var alturaAtual = box.offsetHeight
+                box.style.height = (alturaAtual + 20) + 'px'
+                divAumentada = true
+            }
+
+            var inicial = Number(inicio.value) + 1
+            var cont = Number(passo.value)
+            var final = Number(fim.value)
+
+            resposta.innerHTML = Number(inicio.value)
+            resposta.innerHTML += '&#x1F449;'
+
+            for (let x = inicial; x<final; x+=cont){
+                resposta.innerHTML += x
+                resposta.innerHTML += '&#x1F449;'
+            }
+            
+            resposta.innerHTML += final
+            resposta.innerHTML += '&#x1F3C1;'
+
+            
+        }
+
+    </script>
+</body>
+</html>
